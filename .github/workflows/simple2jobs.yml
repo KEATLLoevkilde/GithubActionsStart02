@@ -18,6 +18,7 @@ jobs:
         shell: python #Bruger pytPhon shell i stedet for deafault bash shell
   run-windows-command: #Navn på næste job
     runs-on: windows-latest #operativsystem som skal køre vores nye job
+    needs: [run-shell-command]
     steps:
       - name: Directory powershell
         run: Get-Location
