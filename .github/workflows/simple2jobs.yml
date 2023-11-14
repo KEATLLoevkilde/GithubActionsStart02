@@ -1,0 +1,18 @@
+name: Shell Commands Python #Navn på workflow
+on: [push]  #Det der aktiverer workflowet (trigger)
+
+jobs:
+  run-shell-command: #Navn på job (må ikke indeholde mellemrum fordi det er en key)
+    runs-on: ubuntu-latest #operativsystem som skal køre vores jobs
+    steps:
+      - name: echo a string #navn på step-object ('-' bruges i yaml, til at angive et array af objekter)
+        run: echo "Hello world" #bash-kommando som skal udføres
+      - name: Multiline script
+        run: |  # '|' bruges når man ønsker at køre flere bash-kommandoer efter hinanden
+          node -v
+          npm -v
+      - name: Python Command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python #Bruger pytPhon shell i stedet for deafault bash shell
