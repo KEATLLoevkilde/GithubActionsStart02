@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest #operativsystem som skal køre vores jobs
     steps:
       - name: echo a string #navn på step-object ('-' bruges i yaml, til at angive et array af objekter)
-        run: echco "Hello world" #bash-kommando som skal udføres
+        run: echo "Hello world" #bash-kommando som skal udføres
       - name: Multiline script
         run: |  # '|' bruges når man ønsker at køre flere bash-kommandoer efter hinanden
           node -v
