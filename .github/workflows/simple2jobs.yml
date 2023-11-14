@@ -3,7 +3,7 @@ on: [push]  #Det der aktiverer workflowet (trigger)
 
 jobs:
   run-shell-command: #Navn på job (må ikke indeholde mellemrum fordi det er en key)
-    runs-on: ubuntu-latest #operativsystem som skal køre vores jobs
+    runs-on: ubuntu-latest #operativsystem som skal køre vores job
     steps:
       - name: echo a string #navn på step-object ('-' bruges i yaml, til at angive et array af objekter)
         run: echo "Hello world" #bash-kommando som skal udføres
@@ -16,3 +16,12 @@ jobs:
           import platform
           print(platform.processor())
         shell: python #Bruger pytPhon shell i stedet for deafault bash shell
+  run-windows-command: #Navn på næste job
+    runs-on: windows-latest #operativsystem som skal køre vores nye job
+    steps:
+      - name: Directory powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash #Skifter shell til bash frem for Powershell, som er default på windows.
+
