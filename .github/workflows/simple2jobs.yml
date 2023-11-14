@@ -16,13 +16,20 @@ jobs:
           import platform
           print(platform.processor())
         shell: python #Bruger pytPhon shell i stedet for deafault bash shell
+
   run-windows-command: #Navn på næste job
     runs-on: windows-latest #operativsystem som skal køre vores nye job
-    needs: [run-shell-command]
+    needs: ["run-shell-command", "run-shell-command02"]
     steps:
       - name: Directory powershell
         run: Get-Location
       - name: Directory Bash
         run: pwd
         shell: bash #Skifter shell til bash frem for Powershell, som er default på windows.
+
+  run-shell-command02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo command 02
+        run: echo 'commmand02'
 
