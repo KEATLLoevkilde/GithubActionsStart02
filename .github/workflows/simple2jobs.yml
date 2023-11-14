@@ -19,7 +19,7 @@ jobs:
 
   run-windows-command: #Navn på næste job
     runs-on: windows-latest #operativsystem som skal køre vores nye job
-    needs: ["run-shell-command", "run-shell-command02"]
+    needs: [run-shell-command, run-shell-command02]
     steps:
       - name: Directory powershell
         run: Get-Location
